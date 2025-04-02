@@ -18,7 +18,7 @@ const config = require('../../lib/config');
 const commons = require('../../lib/commons');
 const { expect } = require('chai');
 
-const AEM_SAMPLE_PAGE_PARENT = '/content/poc/us';
+const AEM_SAMPLE_PAGE_PARENT = '/content/wknd/language-masters';
 const AEM_SAMPLE_PAGE_ID = 'en';
 
 describe('AEM Sites Console', () => {
@@ -49,7 +49,7 @@ describe('AEM Sites Console', () => {
 
 
     describe('Page Properties form', () => {
-        let originalTitle = 'original-page-title';
+        let originalTitle = '';
 
         it('should let user modify the title of a page', () => {
             let modifiedTitle = `modified-title-${Date.now()}`;

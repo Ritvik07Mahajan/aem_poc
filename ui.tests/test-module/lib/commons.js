@@ -31,38 +31,32 @@ function takeScreenshot(browser, prefix) {
 }
 
 function getAuthenticatedRequestOptions(browser) {
-    let loginCookies = _getLoginCookies(browser);
+    let loginTokenCookie = _getLoginTokenCookie(browser);
     let jar = request.jar();
     let currentUrl = new URL(browser.getUrl());
 
-    loginCookies.forEach(cookie => jar.setCookie(cookie.toString(), currentUrl.origin));
+    jar.setCookie(loginTokenCookie.toString(), currentUrl.origin);
 
     return {
         jar: jar
     };
 }
 
-function _getLoginCookies(browser) {
+function _getLoginTokenCookie(browser) {
     let cookies = browser.getCookies();
+    let cookie = cookies.find(element => element.name == 'login-token');
 
-    // Get login and affinity cookies only
-    let loginCookies = cookies.filter(e => ['login-token', 'affinity'].includes(e.name));
-
-    // Throw if mandatory login cookie is not there
-    if (!loginCookies.find(element => element.name == 'login-token')) {
+    if (!cookie) {
         throw new Error('could not get login-token cookie');
     }
 
-    return loginCookies.map(
-        c =>
-            new tough.Cookie({
-                key: c.name,
-                value: c.value,
-                httpOnly: c.httpOnly,
-                secure: false,
-                path: c.path
-            })
-    );
+    return new tough.Cookie({
+        key: cookie.name,
+        value: cookie.value,
+        httpOnly: cookie.httpOnly,
+        secure: false,
+        path: cookie.path
+    });
 }
 
 class OnboardingDialogHandler {
