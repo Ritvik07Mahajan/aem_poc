@@ -15,6 +15,6 @@
   ~ limitations under the License.
   ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
 <workspaceFilter version="1.0">
-    <filter root="/apps/poc-packages"/>
-    <filter root="/apps/poc-vendor-packages"/>
+    <filter root="/apps/wknd-packages"/>
+    <filter root="/apps/wknd-vendor-packages"/>
 </workspaceFilter>

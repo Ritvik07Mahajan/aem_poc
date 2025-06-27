@@ -1,0 +1,7 @@
+{
+  "datasource.name":"SaveAndContinue",
+  "jdbc.driver.class":"com.mysql.cj.jdbc.Driver",
+  "jdbc.username":"root",
+  "jdbc.connection.uri":"jdbc:mysql://localhost:3306/lenden",
+  "jdbc.password":"admin"
+}

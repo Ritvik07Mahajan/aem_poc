@@ -1,0 +1,21 @@
+
+
+<sly data-sly-use.placeholderTemplate="core/wcm/components/commons/v1/templates.html">
+</sly>
+
+  <form>
+
+                    Value1:<input type="text" id="v1" name="v1" value="AL" />
+
+                    Value2:<input type="text" id="v2" name="v2" value="OA" />
+
+                    <input type="submit" class="perform" value="Post to servlet!!!"/>
+
+                </form>
+
+<sly data-sly-use.clientlib="/libs/granite/sightly/templates/clientlib.html">
+  <sly data-sly-call="${clientlib.js @ categories='wknd.custom'}">
+  </sly> 
+</sly>
+<sly data-sly-call="${placeholderTemplate.placeholder @ isEmpty=!hasContent}"></sly>
+
