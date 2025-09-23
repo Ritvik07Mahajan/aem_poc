@@ -1,0 +1,24 @@
+
+ 
+ <div data-sly-use.placeholderTemplate="core/wcm/components/commons/v1/templates.html"
+ 	  class="cmp-aiChatBot">
+      <div class="chat-container">
+        <div class="chat-header">
+            <h1>${properties.heading}</h1>
+        </div>
+        <div class="chat-messages" id="chatMessages">
+        </div>
+        <div class="chat-input">
+            <input type="text" id="userInput" placeholder="Type your message...">
+            <button id="sendBtn">Send</button>
+        </div>
+    </div>
+   
+</div>
+
+<sly data-sly-use.clientlib="/libs/granite/sightly/templates/clientlib.html">
+  <sly data-sly-call="${clientlib.all @ categories='wknd.ai'}">
+  </sly> 
+</sly>
+
+<sly data-sly-call="${placeholderTemplate.placeholder @ isEmpty=!hasContent}"></sly>
